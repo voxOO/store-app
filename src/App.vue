@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+         <div class="navbar-header">
+         <a class="navbar-brand" href="#">STORE APP</a>
+         <ul class="nav navbar-nav">
+           <li><router-link class="nav navbar-nav" to="/customers">CUSTOMERS</router-link></li>
+           <li><router-link class="nav navbar-nav" to="/products">PRODUCTS</router-link></li>
+         </ul>
+         </div>
+      </div>  
+    </nav>
+      <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+ import StoreApp from './components/StoreApp.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    StoreApp
   }
 }
 </script>
@@ -23,6 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
