@@ -27,6 +27,7 @@
                 <td>{{ customer.lastName }}</td>
                 <td>{{ customer.email }}</td>
                 <td><button v-on:click = "deleteCustomer(index)">Delete Customer</button></td>
+                <td><router-link :to="`/customer/${customer.id}`">Latest Purchases</router-link></td>
             </tr>
         </table>
         </div>
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import { customerService } from "../customerService"
 export default {
   data () {
       return {
@@ -42,12 +44,7 @@ export default {
               lastName: '',
               email: '',
           },
-          customers: [
-              {id:1,firstName:'Zoran', lastName:'Hajduk', email:'zoran@gmail.com'},
-              {id:2,firstName:'Pera', lastName:'Peric', email:'peraperic@gmail.com'},
-              {id:3,firstName:'Djoka', lastName:'Djokoc', email:'djoka@gmail.com'},
-              {id:4,firstName:'Miroslav', lastName:'Stepanovacki', email:'stepa@gmail.com'},
-          ]
+          customers: customerService.list()
       }
   },
   methods: {
@@ -61,7 +58,8 @@ export default {
               lastName: '',
               email: '',
           }
-      }
+      },
+     
   }
 }
 </script>
